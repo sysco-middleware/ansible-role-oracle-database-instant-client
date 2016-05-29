@@ -1,5 +1,31 @@
 ---
-- hosts: localhost
-  remote_user: root
+- hosts: 127.0.0.1
+  connection: local
+  tasks:
+    - name: create container
+      docker:
+        name: tmp-oracle-db-instant-client
+        image: syscomiddleware/oracle-jdk:centos-8
+        command: sleep infinity
+        volumes:
+          - "/installers/oracle/db/12.2/instant-client-basic/12.1.0.2:/srv/files"
+        state: started
+
+    - add_host:
+        name: tmp-oracle-db-instant-client
+        groups: docker
+        ansible_connection: docker
+
+- hosts: tmp-oracle-db-instant-client
+  connection: docker
   roles:
-    - oracle-database-instant-client
+    - role: sysco-middleware.oracle-database-instant-client
+
+- hosts: 127.0.0.1
+  connection: local
+  tasks:
+    - name: docker kill
+      command: "docker kill tmp-oracle-db-instant-client"
+
+    - name: docker rm
+      command: "docker rm tmp-oracle-db-instant-client"
