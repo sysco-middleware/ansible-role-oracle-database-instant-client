@@ -7,6 +7,7 @@
 - file:
     path: "{{ oracle_database_client_home }}"
     mode: "777"
+    state: directory
 
 - command: "cp -R {{ oracle_database_client_src }}/* {{ oracle_database_client_home }}"
   args:
