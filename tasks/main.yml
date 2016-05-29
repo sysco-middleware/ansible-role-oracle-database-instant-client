@@ -9,7 +9,7 @@
     mode: "777"
     state: directory
 
-- command: "cp -R {{ oracle_database_client_src }}/* {{ oracle_database_client_home }}"
+- shell: "cp -R {{ oracle_database_client_src }}/* {{ oracle_database_client_home }}"
   args:
     creates: "{{ oracle_database_client_home }}/ojdbc7.jar"
 
