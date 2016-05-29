@@ -9,7 +9,8 @@
     mode: "777"
 
 - command: "cp -R {{ oracle_database_client_src }}/* {{ oracle_database_client_home }}"
-  creates: "{{ oracle_database_client_home }}/ojdbc7.jar"
+  args:
+    creates: "{{ oracle_database_client_home }}/ojdbc7.jar"
 
 - file:
     src: "{{ oracle_database_client_home }}/libclntsh.so.12.1"
