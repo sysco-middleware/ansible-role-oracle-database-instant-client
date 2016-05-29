@@ -1,2 +1,4 @@
 ---
 # defaults file for oracle-database-instant-client
+oracle_database_client_src: /srv/files/instantclient_12_1
+oracle_database_client_home: /opt/oracle/instant-client

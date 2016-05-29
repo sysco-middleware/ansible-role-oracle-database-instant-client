@@ -1,2 +1,22 @@
 ---
 # tasks file for oracle-database-instant-client
+- package:
+    name: libaio
+    state: latest
+
+- file:
+    path: "{{ oracle_database_client_home }}"
+    mode: "777"
+
+- command: "cp -R {{ oracle_database_client_src }}/* {{ oracle_database_client_home }}"
+  creates: {{ oracle_database_client_home }}
+
+- file:
+    src: {{ oracle_database_client_home }}/libclntsh.so.12.1
+    dest: {{ oracle_database_client_home }}/libclntsh.so
+    state: link
+
+- file:
+    src: {{ oracle_database_client_home }}/libocci.so.12.1
+    dest: {{ oracle_database_client_home }}/libocci.so
+    state: link
