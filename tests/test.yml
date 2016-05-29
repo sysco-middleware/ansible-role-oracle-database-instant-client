@@ -21,11 +21,11 @@
   roles:
     - role: sysco-middleware.oracle-database-instant-client
 
-- hosts: 127.0.0.1
-  connection: local
-  tasks:
-    - name: docker kill
-      command: "docker kill oracle-db-instant-client-test"
-
-    - name: docker rm
-      command: "docker rm oracle-db-instant-client-test"
+# - hosts: 127.0.0.1
+#   connection: local
+#   tasks:
+#     - name: docker kill
+#       command: "docker kill oracle-db-instant-client-test"
+#
+#     - name: docker rm
+#       command: "docker rm oracle-db-instant-client-test"

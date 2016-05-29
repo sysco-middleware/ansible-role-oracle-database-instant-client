@@ -22,3 +22,8 @@
     src: "{{ oracle_database_client_home }}/libocci.so.12.1"
     dest: "{{ oracle_database_client_home }}/libocci.so"
     state: link
+
+- template:
+    src: tnsping
+    dest: "{{ oracle_database_client_home }}/tnsping"
+    mode: "u+x"
