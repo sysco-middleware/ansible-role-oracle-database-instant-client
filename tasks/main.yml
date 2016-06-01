@@ -26,4 +26,4 @@
 - template:
     src: tnsping
     dest: "{{ oracle_database_client_home }}/tnsping"
-    mode: "u+x"
+    mode: "777"
